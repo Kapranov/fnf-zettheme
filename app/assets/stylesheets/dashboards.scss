@@ -1,0 +1,56 @@
+//= require authorization
+//= require font-awesome
+//= require gritter/jquery.gritter.css
+//= require toastr/toastr.min.css
+
+@import "bootstrap_refile";
+
+.pace .pace-progress {
+  background: #1AB394 none repeat scroll 0% 0%;
+  position: fixed;
+  z-index: 2000;
+  top: 0px;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.pace {
+  pointer-events: none;
+}
+
+.size-13 {
+  font-size: 13pt;
+}
+
+.size-14 {
+  font-size: 14pt;
+}
+
+.size-15 {
+  font-size: 15pt;
+}
+
+.size-16 {
+  font-size: 16pt;
+}
+
+.size-17 {
+  font-size: 17pt;
+}
+
+.size-18 {
+  font-size: 18pt;
+}
+
+.size-19 {
+  font-size: 19pt;
+}
+
+.size-20 {
+  font-size: 20pt;
+}
+
+.size-26 {
+  font-size: 26pt;
+}

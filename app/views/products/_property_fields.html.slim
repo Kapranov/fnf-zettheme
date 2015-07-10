@@ -1,0 +1,8 @@
+.row.well.nested-fields.animated.fadeInDown
+  .col-lg-10
+    = f.input :key, label: false, placeholder: t("Property key")
+    = f.input :value, label: false, placeholder: t("Property value")
+  .col-lg-2
+    .links.animated.flash
+      /= link_to_remove_association t("remove properties"), f, class: "badge badge-danger"
+      = link_to_remove_association '<i class="fa fa-trash size-26"></i>'.html_safe, f

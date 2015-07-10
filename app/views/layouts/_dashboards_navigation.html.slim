@@ -1,0 +1,202 @@
+nav.navbar-default.navbar-static-side[role="navigation"]
+  .sidebar-collapse
+    ul.nav#side-menu
+      li.nav-header
+        .dropdown.profile-element
+          - if current_user.avatar_id?
+          span
+            = image_tag attachment_url(current_user, :avatar, :fill, 80, 80), class: 'img-circle'
+          a[data-toggle="dropdown" class="dropdown-toggle" href="#"]
+            span.clear
+              span.block.m-t-xs
+                - if current_user.avatar_id?
+                  strong.font-bold = current_user.name
+              span.text-muted.text-xs.block.size8
+                '
+                = t('Avatar menu')
+                '
+                b.caret
+          ul.dropdown-menu.animated.fadeInRight.m-t-xs
+            li
+              a[href="profile.html"] = t('Profile')
+            li
+              a[href="contacts.html"] = t('Contacts')
+            li
+              a[href="mailbox.html"] = t('Mailbox')
+            li.divider
+            li = link_to t('Logout'), destroy_user_session_path, :method=>'delete'
+        .logo-element FnF
+      /li.active
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Dashboards')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li.active
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Widgets')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Catalog')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'categories', :action => 'index'}"] = t('Categories')
+          li
+            a[href="#{url_for :controller => 'products', :action => 'index'}"] = t('Products')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Monitoring')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Product Attributes')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Product Features')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Manufacturers')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Suppliers')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Tags')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Attachments')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Orders')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Orders')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Invoices')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Merchandise Returns')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Delivery Slips')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Credit Slips')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Statuses')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Order Messages')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Customers')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Custommers')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Addresses')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Groups')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Shopping Charts')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Customer Service')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Contacts')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Titles')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Price Rules')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Cart Rules')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Catalog Price Rules')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Marketing')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-globe
+          span.nav-label = t('Localizations')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+              span.nav-label = t('menu.panels.lang')
+              span.fa.arrow
+            ul.nav.nav-second-level
+              li = link_to t('menu.panels.en'), change_locale_path(:en)
+              li = link_to t('menu.panels.ru'), change_locale_path(:ru)
+              li = link_to t('menu.panels.uk'), change_locale_path(:uk)
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Zones')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Countries')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('States')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Currencies')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Taxes')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Tax Rules')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Translations')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Preferences')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('General')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Orders')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Products')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Customers')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('CMS')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Images')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Store Contacts')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Search')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Administration')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Preferences')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Quick Access')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Employsees')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Profiles')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Permissions')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Manage roles')
+      li
+        a[href="#{url_for :controller => 'dashboards', :action => 'index'}"]
+          i.fa.fa-th-large
+          span.nav-label = t('Stats')
+          span.fa.arrow
+        ul.nav.nav-second-level
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Stats')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Search Engines')
+          li
+            a[href="#{url_for :controller => 'dashboards', :action => 'index'}"] = t('Referrers')
+      li.landing_link
+        a[target="_blank" href="#{url_for :controller => 'landing', :action => 'index'}"]
+          i.fa.fa-google
+          span.nav-label = t('Landing Page')
+          span.label.label-warning.pull-right
+      li.special_link
+        a[target="_blank" href="http://emberjs.com"]
+          i.fa.fa-star
+          span.nav-label Ember Ambitious Web

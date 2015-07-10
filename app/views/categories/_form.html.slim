@@ -1,0 +1,53 @@
+= stylesheet_link_tag "categories", :media => 'all'
+= javascript_include_tag 'categories'
+
+.wrapper.wrapper-content.animated.fadeInRight.ecommerce
+  .row
+    .col-lg-12
+      .tabs-container
+        ul.nav.nav-tabs
+          li.active
+            a[data-toggle="tab" href="#tab-1"] = t('New category')
+        .tab-content
+          = simple_form_for(@category) do |f|
+            = f.error_notification
+            #tab-1.tab-pane.active
+              .panel-body
+                fieldset.form-horizontal
+                  .form-group
+                    label.col-sm-2.control-label = t('Name')
+                    .col-sm-4
+                      .form-inputs
+                        = f.input :name, label: false, placeholder: t('Category name')
+                  .form-group
+                    label.col-sm-2.control-label = t('Description')
+                    .col-sm-10
+                      .form-inputs
+                        = f.input :description, label: false, placeholder: t('Description'), input_html: { class: 'summernote' }
+                  .form-group
+                    label.col-sm-2.control-label = t('Displayed')
+                    .col-sm-2
+                      .form-inputs
+                        = f.input :displayed, label: false
+                        '
+                        = t('yes or no')
+                  .form-group
+                    .col-sm-9
+                      .form-actions
+                        .col-sm-3
+                          = f.submit t('Save'), class: "btn btn-info btn-block"
+                        .col-sm-3
+                          = link_to t('Back'), categories_path, class: "btn btn-info btn-block"
+
+
+/= simple_form_for(@category) do |f|
+  = f.error_notification
+
+  /.form-inputs
+    = f.association :user
+    = f.input :name
+    = f.input :description
+    = f.input :displayed
+
+  /.form-actions
+    = f.button :submit
